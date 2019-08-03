@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cassino BlackJack</title>
+    <link rel="stylesheet" href="container/app.css">
+</head>
+<body>
+    <div id="app">
+        <div class="flexPosition">
+            <div v-if="gameStart">
+                <button @click="qtdCards()" >Número de cartas restantes {{ (media - qtdCard) }} </button>
+                <button @click="desistir()" >Desistir</button>
+                <div class="print">
+                    <span v-for="valorAposta in valorDasApostas">{{ valorAposta }}</span>
+                </div>
+                <div>{{ separador() }}</div>
+                <div>{{ separador_2()  }}</div>
+            </div>
+
+            <div v-else>
+                <h1>BlackJack !!!</h1>
+                <h4>Player 01</h4>
+                <input type="text" v-model="valorDasApostas[0]"  placeholder="Valor da aposta">
+                <button @click = 'gameStart = !gameStart' >Jogar</button>
+            </div>
+        </div>
+        {{ Print() }}
+    </div>
+
+    <script src="vue.js"></script> <!--Import Vue.Js-->
+    <script src="container/app.js"></script> <!--Main app -->
+</body>
+</html>
